@@ -100,10 +100,7 @@ updateHooks.forEach((hook) => {
 // Create index on eventId for faster queries
 BookingSchema.index({ eventId: 1 });
 
-// Compound index for querying bookings by event and email
-BookingSchema.index({ eventId: 1, email: 1 });
-
-// Enforce one booking per events per email
+// Enforce one booking per event per email (also serves query optimization)
 BookingSchema.index(
   { eventId: 1, email: 1 },
   { unique: true, name: "uniq_event_email" }
