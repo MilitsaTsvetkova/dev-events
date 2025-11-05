@@ -5,7 +5,7 @@ import React from "react";
 interface EventCardProps {
   title: string;
   image: string;
-  id: string;
+  slug: string;
   location: string;
   date: string;
   time: string;
@@ -14,13 +14,13 @@ interface EventCardProps {
 const EventCard = ({
   title,
   image,
-  id,
+  slug,
   location,
   date,
   time,
 }: EventCardProps) => {
   return (
-    <Link href={`/events/${id}`} id="event-card">
+    <Link href={`/events/${slug}`} id="event-card">
       <Image
         src={image}
         alt={title}
